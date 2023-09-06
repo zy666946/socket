@@ -1,10 +1,25 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import socket from './components/socket.vue'
+
+	//Eruda浏览器开发者工具
+	import eruda from 'eruda'
+	eruda.init()
+
+	//初始化pinia状态
+	import { useMessage } from './stores/counter'
+	const message = useMessage()
+	localStorage.getItem('message')?message.addOffMessage(JSON.parse(localStorage.getItem('message'))):localStorage.setItem('message',JSON.stringify({}))
+
+	
+
+	
+	
 </script>
 
 <template>
-        <socket></socket>
+	
+
+	<router-view></router-view>
+	
 </template>
 
 <style>
